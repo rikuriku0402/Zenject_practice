@@ -129,3 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 324085096285868237}
   _jumpPower: 0.58
+  _speed: 3.21

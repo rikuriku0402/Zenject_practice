@@ -16,6 +16,9 @@ public class Move : MonoBehaviour
     [Header("ジャンプパワー")]
     float _jumpPower;
 
+    [SerializeField]
+    [Header("Playerのスピード")]
+    float _speed;
 
     public void SetInputProvider(IInputProbider input) => _inputProvider = input;
 
@@ -27,6 +30,6 @@ public class Move : MonoBehaviour
         {
             Jump();
         }
-        _rb.AddForce(new Vector3(_inputProvider.GetHorizontal(), 0, _inputProvider.GetVertical()));
+        _rb.AddForce(new Vector3(_inputProvider.GetHorizontal(), 0, _inputProvider.GetVertical() * _speed));
     }
 }
