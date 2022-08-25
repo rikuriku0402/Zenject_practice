@@ -6,7 +6,7 @@ using Zenject;
 public class Move : MonoBehaviour
 {
     [Inject]
-    private IInputProbider _inputProvider;
+    IInputProbider _inputProvider;
 
     [SerializeField]
     [Header("剛体")]
@@ -15,6 +15,7 @@ public class Move : MonoBehaviour
     [SerializeField]
     [Header("ジャンプパワー")]
     float _jumpPower;
+
 
     public void SetInputProvider(IInputProbider input) => _inputProvider = input;
 
@@ -26,6 +27,6 @@ public class Move : MonoBehaviour
         {
             Jump();
         }
-        _rb.AddForce(new Vector3(_inputProvider.GetHorizontal(), _inputProvider.GetVertical()));
+        _rb.AddForce(new Vector3(_inputProvider.GetHorizontal(), 0, _inputProvider.GetVertical()));
     }
 }
